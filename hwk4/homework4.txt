@@ -3,3 +3,346 @@ STEP A
 git config --global user.name "Hande Nur Uygun"
 git config --global user.email "uygun313.313@gmail.com"
 git config --global core.editor "code --wait"
+
+git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.email=uygun313.313@gmail.com
+user.name=Hande Nur Uygun
+core.editor=code --wait
+
+STEP B
+
+git clone https://github.com/handeuygunn/soft2101-homework4
+Cloning into 'soft2101-homework4'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (7/7), done.
+
+cd soft2101-homework4
+
+ls -a
+./  ../  .git/  README.md  hwk4/
+
+ls .git
+HEAD    description  index  logs/     packed-refs
+config  hooks/       info/  objects/  refs/
+
+STEP C
+
+notepad README.md
+
+git add README.md
+
+git commit -m "Update README with repository description and university link"
+[main 72a6ae0] Update README with repository description and university link
+ 1 file changed, 36 insertions(+)
+
+git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 768 bytes | 384.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/handeuygunn/soft2101-homework4
+   0a1c34c..72a6ae0  main -> main
+
+[Department of Software Engineering – Işık University](https://www.isikun.edu.tr/akademik/muhendislik-fakultesi/bolumler-ve-programlar/bilgisayar-muhendisligi/programlar/lisans-programi/yazilim-muhendisligi)
+
+STEP D
+
+touch .gitignore
+
+git add .gitignore
+
+git commit -m "Setting up gitignore"
+[main 465d174] Setting up gitignore
+ 1 file changed, 22 insertions(+)
+ create mode 100644 .gitignore
+
+git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 470 bytes | 235.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/handeuygunn/soft2101-homework4
+   72a6ae0..465d174  main -> main
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# JVM crash logs
+hs_err_pid*
+
+# IDE directories and files
+.idea/
+.vscode/
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+STEP E
+
+git branch feature-1
+
+git checkout feature-1
+Switched to branch 'feature-1'
+
+git branch
+* feature-1
+  main
+
+mkdir hmk1
+
+cd hmk1
+
+STEP F
+
+cd ..
+
+git add hmk1/RangePrinter.java
+
+git commit -m "Satisfying requirement one"
+[feature-1 143a0d3] Satisfying requirement one
+ 1 file changed, 28 insertions(+)
+ create mode 100644 hmk1/RangePrinter.java
+
+git push origin feature-1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 691 bytes | 230.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'feature-1' on GitHub by visiting:
+remote:      https://github.com/handeuygunn/soft2101-homework4/pull/new/feature-1
+remote:
+To https://github.com/handeuygunn/soft2101-homework4
+ * [new branch]      feature-1 -> feature-1
+
+git log --oneline
+143a0d3 (HEAD -> feature-1, origin/feature-1) Satisfying requirement one
+465d174 (origin/main, origin/HEAD, main) Setting up gitignore
+72a6ae0 Update README with repository description and university link
+0a1c34c Create homework4.txt
+dee3682 Initial commit
+
+ls hmk1
+RangePrinter.java
+
+git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+ls hmk1
+ls: cannot access 'hmk1': No such file or directory
+
+STEP G
+
+git merge feature-1
+Updating 465d174..143a0d3
+Fast-forward
+ hmk1/RangePrinter.java | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+ create mode 100644 hmk1/RangePrinter.java
+
+ls hmk1
+RangePrinter.java
+
+git push origin main
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/handeuygunn/soft2101-homework4
+   465d174..143a0d3  main -> main
+
+git log --oneline
+143a0d3 (HEAD -> main, origin/main, origin/feature-1, origin/HEAD,
+feature-1) Satisfying requirement one
+465d174 Setting up gitignore
+72a6ae0 Update README with repository description and university link
+0a1c34c Create homework4.txt
+dee3682 Initial commit
+
+STEP H
+
+git checkout -b feature-2
+Switched to a new branch 'feature-2'
+
+STEP I
+
+git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+git checkout -b feature-3
+Switched to a new branch 'feature-3'
+
+STEP J
+
+cd ..
+
+git add hmk1/RangePrinter.java
+
+git commit -m "satisfying requirement change two"
+[feature-2 9ec7cba] satisfying requirement change two
+ 1 file changed, 12 insertions(+), 9 deletions(-)
+
+git push origin feature-2
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 496 bytes | 496.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'feature-2' on GitHub by visiting:
+remote:      https://github.com/handeuygunn/soft2101-homework4/pull/new/feature-2
+remote:
+To https://github.com/handeuygunn/soft2101-homework4
+ * [new branch]      feature-2 -> feature-2
+
+git log --oneline
+9ec7cba (HEAD -> feature-2, origin/feature-2) satisfying requirement change two
+143a0d3 (origin/main, origin/feature-1, origin/HEAD, main, feature-3, feature-1) Satisfying requirement one
+465d174 Setting up gitignore
+72a6ae0 Update README with repository description and university link
+0a1c34c Create homework4.txt
+dee3682 Initial commit
+
+STEP K
+
+git checkout feature-3
+Switched to branch 'feature-3'
+
+cd hmk1
+
+notepad RangePrinter.java
+
+git commit -m "satisfying requirement change three"
+[feature-3 abc618f] satisfying requirement change three
+ 1 file changed, 13 insertions(+), 8 deletions(-)
+
+ git push origin feature-3
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 500 bytes | 500.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'feature-3' on GitHub by visiting:
+remote:      https://github.com/handeuygunn/soft2101-homework4/pull/new/feature-3
+remote:
+To https://github.com/handeuygunn/soft2101-homework4
+ * [new branch]      feature-3 -> feature-3
+
+STEP L
+
+git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git merge feature-2
+Updating 143a0d3..9ec7cba
+Fast-forward
+ hmk1/RangePrinter.java | 21 ++++++++++++---------
+ 1 file changed, 12 insertions(+), 9 deletions(-)
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git add hmk1/RangePrinter.java
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git commit -m "Resolve merge conflict, keep feature-2 functionality"
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git push origin main
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/handeuygunn/soft2101-homework4
+   143a0d3..9ec7cba  main -> main
+
+STEP M
+
+git merge feature-3
+Auto-merging hmk1/RangePrinter.java
+CONFLICT (content): Merge conflict in hmk1/RangePrinter.java
+Automatic merge failed; fix conflicts and then commit the result.
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main|MERGING)
+$ notepad hmk1/RangePrinter.java
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main|MERGING)
+$ git add hmk1/RangePrinter.java
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main|MERGING)
+$ git commit -m "Resolve merge conflict, keep feature-3 functionality"
+[main d353d02] Resolve merge conflict, keep feature-3 functionality
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git push origin main
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 556 bytes | 556.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/handeuygunn/soft2101-homework4
+   9ec7cba..d353d02  main -> main
+
+git diff main feature-1
+git diff main feature-2
+git diff main feature-3
+
+STEP N
+
+git push origin main
+Everything up-to-date
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git push origin feature-1
+Everything up-to-date
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git push origin feature-2
+Everything up-to-date
+
+uygun@Hande MINGW64 ~/soft2101-homework4 (main)
+$ git push origin feature-3
+Everything up-to-date
+
+STEP O
+
